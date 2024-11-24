@@ -1,13 +1,214 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+/* Container Styling */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styling */
+button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Input Styling */
+input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* List Styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background: #f9f9f9;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    /* Header Styling */
+
+    header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+        color: #007bff;
+    }
+
+    header p {
+        font-size: 1.2rem;
+        color: #555;
+    }
+
+    /* Quick Actions Section */
+
+    .quick-actions {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .quick-actions .button {
+        text-decoration: none;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: center;
+        transition: background-color 0.3s;
+    }
+
+    .quick-actions .button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Section Titles */
+
+    section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+}
+
+/* General styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #dcbadd;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #e2a8e6;
+    color: #333;
+    padding: 20px;
+}
+
+.homepage-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.homepage-header h1 {
+    font-size: 3rem;
+    margin: 0;
+    background: linear-gradient(90deg, #c900f4, rgb(15, 237, 200), #ffc800);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-flow 5s infinite;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    font-family: 'Arial Black', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@keyframes gradient-flow {
+    0% {
+        background-position: 0%;
+    }
+    50% {
+        background-position: 100%;
+    }
+    100% {
+        background-position: 0%;
+    }
+}
+
+
+.homepage-header p {
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0.74);
+}
+
+.overview-section, .meals-section {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.overview-section h2, .meals-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #c8b0cd;
+}
+
+.summary-table, .meals-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.summary-table th, .meals-table th,
+.summary-table td, .meals-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.summary-table th, .meals-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.meals-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.loader {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #666;
+}
+
+.error {
+    text-align: center;
+    color: red;
+    font-size: 1.2rem;
 }
