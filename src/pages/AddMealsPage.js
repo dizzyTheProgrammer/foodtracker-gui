@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { getBaseMeals } from '../services/api'; // API call to fetch available BaseMeals
 import { addBulkSavedMeals } from '../services/api'; // API call to save meals
+import '../styles/AddMealPage.css'; // Import CSS file for styling
 
 const AddMealPage = () => {
     const [meals, setMeals] = useState([]);
-    const [selectedMeal, setSelectedMeal] = useState(null); // Changed to hold the entire meal object
+    const [selectedMeal, setSelectedMeal] = useState(null);
     const [quantity, setQuantity] = useState('');
     const [macros, setMacros] = useState({
         calories: 0,
@@ -12,15 +13,14 @@ const AddMealPage = () => {
         protein: 0,
         fats: 0
     });
-    const [mealType, setMealType] = useState('BREAKFAST'); // New state for meal type
+    const [mealType, setMealType] = useState('BREAKFAST');
     const [message, setMessage] = useState('');
 
-    // Fetch available BaseMeals on component mount
     useEffect(() => {
         const fetchMeals = async () => {
             try {
                 const response = await getBaseMeals();
-                setMeals(response.data); // Store BaseMeals
+                setMeals(response.data);
             } catch (error) {
                 console.error('Error fetching BaseMeals:', error);
             }
@@ -28,27 +28,24 @@ const AddMealPage = () => {
         fetchMeals();
     }, []);
 
-    // Handle selection of a BaseMeal and calculation of macros
     const handleMealSelect = (event) => {
         const mealId = event.target.value;
         const meal = meals.find((meal) => meal.id.toString() === mealId.toString());
-        setSelectedMeal(meal);  // Store the entire meal object
-        calculateMacros(meal, quantity); // Pass the meal object to the calculation function
+        setSelectedMeal(meal);
+        calculateMacros(meal, quantity);
     };
 
-    // Handle quantity input and calculate macros accordingly
     const handleQuantityChange = (event) => {
         const value = event.target.value;
         setQuantity(value);
         if (selectedMeal) {
-            calculateMacros(selectedMeal, value); // Pass the meal object to the calculation function
+            calculateMacros(selectedMeal, value);
         }
     };
 
-    // Function to calculate macros based on selected meal and quantity
     const calculateMacros = (meal, quantity) => {
         if (!meal || !quantity) return;
-        const multiplier = parseInt(quantity) / 100; // Calculating per 100g ratio
+        const multiplier = parseInt(quantity) / 100;
         setMacros({
             calories: (meal.calories * multiplier).toFixed(2),
             carbs: (meal.carbs * multiplier).toFixed(2),
@@ -57,7 +54,6 @@ const AddMealPage = () => {
         });
     };
 
-    // Handle meal type change
     const handleMealTypeChange = (event) => {
         setMealType(event.target.value);
     };
@@ -88,12 +84,11 @@ const AddMealPage = () => {
     };
 
     return (
-        <div style={{ padding: '20px' }}>
+        <div className="add-meal-container">
             <h2>Food Tracker - Add Meal</h2>
-            <div>
-                <h3>Meal</h3>
-                <div>
-                    <label>Select Meal: </label>
+            <div className="form-section">
+                <div className="form-group">
+                    <label>Select Meal:</label>
                     <select value={selectedMeal?.id || ''} onChange={handleMealSelect}>
                         <option value="">--Select Meal--</option>
                         {meals.map((meal) => (
@@ -103,8 +98,8 @@ const AddMealPage = () => {
                         ))}
                     </select>
                 </div>
-                <div>
-                    <label>Quantity (in grams): </label>
+                <div className="form-group">
+                    <label>Quantity (in grams):</label>
                     <input
                         type="number"
                         value={quantity}
@@ -112,29 +107,26 @@ const AddMealPage = () => {
                         min="1"
                     />
                 </div>
-
-                {/* Dropdown for Meal Type */}
-                <div>
-                    <label>Meal Type: </label>
+                <div className="form-group">
+                    <label>Meal Type:</label>
                     <select value={mealType} onChange={handleMealTypeChange}>
                         <option value="BREAKFAST">Breakfast</option>
                         <option value="LUNCH">Lunch</option>
                         <option value="DINNER">Dinner</option>
                     </select>
                 </div>
-
-                <div style={{ color: 'red', fontSize: '14px' }}>
-                    {message && <p>{message}</p>}
-                </div>
-                <div>
-                    <h4>Summary</h4>
-                    <p>Calories: {macros.calories} kcal</p>
-                    <p>Carbs: {macros.carbs} g</p>
-                    <p>Protein: {macros.protein} g</p>
-                    <p>Fats: {macros.fats} g</p>
-                </div>
-                <button onClick={handleSaveMeal}>Save Meal</button>
+                {message && <p className="message">{message}</p>}
             </div>
+            <div className="summary-section">
+                <h4>Summary</h4>
+                <p>Calories: {macros.calories} kcal</p>
+                <p>Carbs: {macros.carbs} g</p>
+                <p>Protein: {macros.protein} g</p>
+                <p>Fats: {macros.fats} g</p>
+            </div>
+            <button className="save-button" onClick={handleSaveMeal}>
+                Save Meal
+            </button>
         </div>
     );
 };
