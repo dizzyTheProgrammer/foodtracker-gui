@@ -50,6 +50,10 @@ const HomePage = () => {
         };
     };
 
+    const formatToTwoDecimalPlaces = (value) => {
+        return parseFloat(value).toFixed(2);
+    };
+
     const summary = calculateSummary();
 
     if (loading) return <div className="loader">Loading...</div>;
@@ -69,19 +73,19 @@ const HomePage = () => {
                         <tbody>
                         <tr>
                             <th>Total Calories</th>
-                            <td>{summary.totalCalories} kcal</td>
+                            <td>{formatToTwoDecimalPlaces(summary.totalCalories)} kcal</td>
                         </tr>
                         <tr>
                             <th>Total Protein</th>
-                            <td>{summary.totalProtein} g</td>
+                            <td>{formatToTwoDecimalPlaces(summary.totalProtein)} g</td>
                         </tr>
                         <tr>
                             <th>Total Carbs</th>
-                            <td>{summary.totalCarbs} g</td>
+                            <td>{formatToTwoDecimalPlaces(summary.totalCarbs)} g</td>
                         </tr>
                         <tr>
                             <th>Total Fats</th>
-                            <td>{summary.totalFats} g</td>
+                            <td>{formatToTwoDecimalPlaces(summary.totalFats)} g</td>
                         </tr>
                         </tbody>
                     </table>

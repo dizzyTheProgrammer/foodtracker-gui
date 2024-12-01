@@ -1,56 +1,78 @@
-/* App.css */
-
 /* General styling for the navbar */
 .navbar {
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: linear-gradient(90deg, #A59D84, #ECEBDE);
-    padding: 15px 0;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    justify-content: space-between; /* Space logo and links */
+    background: linear-gradient(90deg, #8a826d, #EAECC6);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
     position: sticky;
     top: 0;
     z-index: 1000;
+    gap: 20px; /* Space between items */
 }
 
-/* Styling for each navigation link */
-.nav-link {
-    margin: 0 15px;
-    text-decoration: none;
-    font-size: 18px;
+/* Logo styling */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
     font-weight: bold;
-    color: white;
+    color: #333;
+    flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Navbar links container */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    margin-right: 550px;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Navbar links */
+.nav-link {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 12px;
     position: relative;
     transition: all 0.3s ease;
-    display: inline-flex; /* Align icon and text */
+    display: flex;
     align-items: center;
     gap: 8px; /* Space between icon and text */
+    border-radius: 10px; /* Add slight rounding */
 }
 
+/* Hover effect */
 .nav-link:hover {
-    color: #ECEBDE;
+    background: linear-gradient(90deg, #aea688, #918f8b);
+    color: #f3f3f0;
     transform: scale(1.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Add active link highlighting */
+/* Active link styling */
 .active-link {
+    background: #333;
     color: #fff;
-    font-weight: bold;
-    border-bottom: 3px solid white;
-    padding-bottom: 3px;
+    border-radius: 10px;
+    padding: 8px 12px;
 }
 
 /* Add subtle underline animation on hover */
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: white;
-    transition: width 0.3s ease-in-out;
-}
 
 .nav-link:hover::after {
     width: 100%;
@@ -63,14 +85,70 @@
     transition: color 0.3s;
 }
 
-/* Smooth transition for hover */
 .nav-link:hover::before {
     color: #fff;
 }
 
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px; /* Adjust spacing for smaller screens */
+    }
+
+    .nav-link {
+        width: 100%;
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+}
+
+/* Fade-in effect */
+.fade-enter {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fade-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
 body {
-    background-color: #D7D3BF; /* Light gray background */
+    background-color: #D7D3BF;
     margin: 0;
-    font-family: Arial, sans-serif; /* Set a consistent font */
-    color: #333; /* Set default text color */
+    font-family: Arial, sans-serif;
+    color: #333;
 }
