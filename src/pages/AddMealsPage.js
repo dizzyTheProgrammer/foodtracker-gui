@@ -85,7 +85,7 @@ const AddMealPage = () => {
 
     return (
         <div className="add-meal-container">
-            <h2>Food Tracker - Add Meal</h2>
+            <h2>Add Meal</h2>
             <div className="form-section">
                 <div className="form-group">
                     <label>Select Meal:</label>

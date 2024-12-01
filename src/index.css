@@ -5,12 +5,10 @@
     box-sizing: border-box;
 }
 
-
-/* Container Styling */
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background: #fff;
+    background: #F8F5E9;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -19,7 +17,7 @@
 /* Button Styling */
 button {
     display: inline-block;
-    background-color: #007bff;
+    background-color: #A59D84;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -30,7 +28,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #A59D84;
 }
 
 /* Input Styling */
@@ -108,7 +106,7 @@ ul li {
 /* General styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #dcbadd;
+    background-color: #c82fd5;
     color: #333;
     margin: 0;
     padding: 0;
@@ -118,9 +116,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     min-height: 100vh;
-    background-color: #e2a8e6;
+    background-color: #D7D3BF;
     color: #333;
     padding: 20px;
 }
@@ -133,7 +130,7 @@ body {
 .homepage-header h1 {
     font-size: 3rem;
     margin: 0;
-    background: linear-gradient(90deg, #c900f4, rgb(15, 237, 200), #ffc800);
+    background: linear-gradient(90deg, #A59D84, rgb(234, 216, 178), #575341);
     background-size: 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -166,17 +163,23 @@ body {
     width: 100%;
     max-width: 800px;
     text-align: center;
-    background-color: #fff;
+    background-color: #F8F5E9;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
 }
+
+.overview-section:hover, .meals-section:hover {
+    transform: scale(1.02);
+}
+
 
 .overview-section h2, .meals-section h2 {
     font-size: 1.8rem;
     margin-bottom: 20px;
-    color: #c8b0cd;
+    color: #3E3E3E;
 }
 
 .summary-table, .meals-table {
@@ -211,4 +214,14 @@ body {
     text-align: center;
     color: red;
     font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
 }

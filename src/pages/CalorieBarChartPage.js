@@ -12,8 +12,8 @@ const CalorieBarChartPage = () => {
         datasets: [{
             label: 'Calories per Day',
             data: [], // Total calories for each day
-            backgroundColor: 'rgba(75, 192, 192, 0.2)', // Bar color
-            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: '#C1BAA1', // Bar color
+            borderColor: '#494236',
             borderWidth: 1,
         }],
     });
@@ -53,8 +53,8 @@ const CalorieBarChartPage = () => {
                     datasets: [{
                         label: 'Calories per Day',
                         data: dailyCalories,
-                        backgroundColor: 'rgba(244,38,255,0.66)',
-                        borderColor: 'rgb(201,0,244)',
+                        backgroundColor: '#A59D84',
+                        borderColor: '#494236',
                         borderWidth: 1,
                     }],
                 });
@@ -64,17 +64,16 @@ const CalorieBarChartPage = () => {
         };
 
         fetchCaloriesData();
-    }, []);  // Run only once when the component mounts
+    }, []);
 
-    // Styling
     const styles = {
         container: {
             textAlign: 'center',
-            backgroundColor: '#dcbadd',
+            backgroundColor: '#F8F5E9',
             padding: '20px',
             borderRadius: '10px',
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-            margin: '20px auto',
+            margin: '40px auto',
             maxWidth: '900px',
         },
         header: {
@@ -96,7 +95,7 @@ const CalorieBarChartPage = () => {
             justifyContent: 'center',
             alignItems: 'center',
             padding: '10px',
-            backgroundColor: '#dcbadd',
+            backgroundColor: '#F8F5E9',
             borderRadius: '8px',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
         },
